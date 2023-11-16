@@ -49,18 +49,19 @@ int main()
 {
   SIMD<double,4> a(1.,2.,3.,4.);
   SIMD<double,4> b(1.0);
-  
+  SIMD<double,4> c(1.,2.,3.,4.);
   cout << "a = " << a << endl;
   cout << "b = " << b << endl;
   cout << "a+b = " << a+b << endl;
-
+  auto d =  a*b+c;
+  cout << "a*b+c = " << d<< endl;
   cout << "HSum(a) = " << HSum(a) << endl;
   cout << "HSum(a,b) = " << HSum(a,b) << endl;
 
   
-  auto sequ = IndexSequence<int64_t, 4>();
+  auto sequ = SIMD<double, 4>(1,2,3,4);
   cout << "sequ = " << sequ << endl;
-  auto mask = (2 >= sequ);
+  auto mask = (2.0 >= sequ);
   cout << "2 >= " << sequ << " = " << mask << endl;
 
   {
@@ -70,5 +71,8 @@ int main()
   }
 
   cout << "Select(mask, a, b) = " << Select(mask, a,b) << endl;
-  
+  auto inseq = IndexSequence<int64_t,4>();
+  auto mask2 = ((int64_t)2 >= inseq);
+  cout <<inseq << endl<< mask2<<endl;
+  cout <<a/b;
 }

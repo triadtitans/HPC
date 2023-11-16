@@ -38,6 +38,17 @@ namespace ASC_HPC
     auto Val() const { return mask; }
     operator bool() { return bool(mask); }
   };
+
+    
+  class mask32
+  {
+    int32_t mask;
+  public:
+    mask32 (bool b)
+      : mask{ b ? -1 : 0 } { }
+    auto Val() const { return mask; }
+    operator bool() { return bool(mask); }
+  };
   
   inline std::ostream & operator<< (std::ostream & ost, mask64 m)
   {
