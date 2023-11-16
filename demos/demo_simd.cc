@@ -48,6 +48,8 @@ SIMD<double,2> TestHSum (SIMD<double,4> a, SIMD<double,4> b)
 int main()
 {
   SIMD<double,4> a(1.,2.,3.,4.);
+  SIMD<double,2> x(1.,2.);
+  SIMD<double,2> y(1.,2.);
   SIMD<double,4> b(1.0);
   SIMD<double,4> c(1.,2.,3.,4.);
   cout << "a = " << a << endl;
@@ -74,5 +76,9 @@ int main()
   auto inseq = IndexSequence<int64_t,4>();
   auto mask2 = ((int64_t)2 >= inseq);
   cout <<inseq << endl<< mask2<<endl;
-  cout <<a/b;
+  cout <<a/b<<endl;
+  cout <<x<<endl;
+  cout <<y<<endl;
+  auto z = x+y;
+  cout << z;
 }
