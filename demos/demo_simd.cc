@@ -66,6 +66,14 @@ int main()
   auto mask = (2.0 >= sequ);
   cout << "2 >= " << sequ << " = " << mask << endl;
 
+
+  auto simd1 = SIMD<double, 2>(2.,3.);
+  cout << "simd1 = " << simd1 << endl;
+  auto simd2 = SIMD<double, 2>(2.,4.);
+  cout << "simd2 = " << simd2 << endl;
+  SIMD<mask64, 2> comp = (simd1 >= simd2);
+  cout << "(simd1 >= simd2) = " << comp << endl;
+
   {
     double a[] = { 10, 10, 10, 10 };
     SIMD<double,4> sa(&a[0], mask);

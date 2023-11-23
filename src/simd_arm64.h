@@ -86,14 +86,15 @@ namespace ASC_HPC
   inline SIMD<double,2> FMA (SIMD<double,2> a, SIMD<double,2> b, SIMD<double,2> c) 
   { return vmlaq_f64(c.Val(), a.Val(), b.Val()); }
 
-
-
   inline SIMD<double,2> Select (SIMD<mask64,2> mask, SIMD<double,2> b, SIMD<double,2> c)
   { return vbslq_f64(mask.Val(), b.Val(), c.Val()); }
   
   inline SIMD<double,2> HSum (SIMD<double,2> a, SIMD<double,2> b)
   { return vpaddq_f64(a.Val(), b.Val()); }
   
+  auto operator>= (SIMD<double,2> a, SIMD<double,2> b)
+  { return SIMD<mask64,2>(vcgeq_f64(a.Val(),b.Val())); }
+
 }
 
 #endif
