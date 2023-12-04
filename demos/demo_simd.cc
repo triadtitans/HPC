@@ -61,7 +61,7 @@ int main()
   cout << "HSum(a,b) = " << HSum(a,b) << endl;
 
   
-  auto sequ = SIMD<double, 4>(1,2,3,4);
+  auto sequ = SIMD<double, 4>(1.0,2.0,3.0,4.0);
   cout << "sequ = " << sequ << endl;
   auto mask = (2.0 >= sequ);
   cout << "2 >= " << sequ << " = " << mask << endl;
@@ -84,7 +84,7 @@ int main()
   auto inseq = IndexSequence<int64_t,4>();
   auto mask2 = ((int64_t)2 >= inseq);
   cout <<inseq << endl<< mask2<<endl;
-  cout <<a/b<<endl;
+  //cout <<a/b<<endl;
   cout <<x<<endl;
   cout <<y<<endl;
   auto z = x+y;
